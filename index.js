@@ -1,5 +1,6 @@
 //var robot = require("robotjs");
-var ks = require('node-key-sender');
+//var ks = require('node-key-sender');
+
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000;
@@ -9,8 +10,9 @@ app.listen(port, "0.0.0.0");
 var actionsP1 =['up','down','right','left','shift','enter','q','w','a','s','d'];
 function executeAction(controller,action){
     if(controller==1){
-        ks.sendKey(actionsP1[action-1]);
+        //ks.sendKey(actionsP1[action-1]);
         //robot.keyTap(actionsP1[action-1]);
+        robot.press(actionsP1[action-1]);
     }
 }
 console.log('API server started on: ' + port);

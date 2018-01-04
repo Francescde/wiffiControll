@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-key-sender": "^1.0.9",
+    "kbm-robot": "0.0.4",
     "robotjs": "^0.4.7"
   }
 }
