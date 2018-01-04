@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
     "node-key-sender": "^1.0.9",
     "robotjs": "^0.4.7"
   }
