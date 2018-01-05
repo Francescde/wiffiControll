@@ -1,6 +1,7 @@
 //var robot = require("robotjs");
 //var ks = require('node-key-sender');
 var robot = require("kbm-robot");
+robot.startJar();
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000;
@@ -25,11 +26,10 @@ app.get('/controller/:controller/action/:action', function (req, res, next) {
     actionsArr = actions.split(",");
     //robot.startJar();
     if(actionsArr.length>0) {
-        robot.startJar();
         for (var i = 0, len = actionsArr.length; i < len; i++) {
             executeAction(controller,parseInt(actionsArr[i]));
         }
-        robot.go().then(robot.stopJar);
+        robot.go();
     }
     //robot.go().then(robot.stopJar);
 
