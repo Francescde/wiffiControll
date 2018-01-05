@@ -13,8 +13,6 @@ function executeAction(controller,action){
         //ks.sendKey(actionsP1[action-1]);
         //robot.keyTap(actionsP1[action-1]);
 
-        //robot.startJar();
-
         robot.press(actionsP1[action-1]);
             //.typeString("Hello World!");
         //robot.press(actionsP1[action-1]);
@@ -25,11 +23,15 @@ app.get('/controller/:controller/action/:action', function (req, res, next) {
     var controller = req.params.controller;
     var actions = req.params.action;
     actionsArr = actions.split(",");
-    robot.startJar();
-    for (var i = 0, len = actionsArr.length; i < len; i++) {
-        executeAction(controller,parseInt(actionsArr[i]));
+    //robot.startJar();
+    if(actionsArr.length>0) {
+        robot.startJar();
+        for (var i = 0, len = actionsArr.length; i < len; i++) {
+            executeAction(controller,parseInt(actionsArr[i]));
+        }
+        robot.go().then(robot.stopJar);
     }
-    robot.go().then(robot.stopJar);
+    //robot.go().then(robot.stopJar);
 
     console.log('controller '+controller+' asks action '+actions);
 });
