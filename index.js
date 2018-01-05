@@ -21,6 +21,7 @@ function executeAction(controller,action){
 }
 console.log('API server started on: ' + port);
 app.get('/controller/:controller/action/:action', function (req, res, next) {
+    console.log('requesr');
     var controller = req.params.controller;
     var actions = req.params.action;
     actionsArr = actions.split(",");
@@ -35,3 +36,5 @@ app.get('/controller/:controller/action/:action', function (req, res, next) {
 
     console.log('controller '+controller+' asks action '+actions);
 });
+
+console.log('All ready');
